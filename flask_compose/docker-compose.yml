@@ -1,0 +1,15 @@
+web:
+    build: .
+    command: python -u app.py
+    ports:
+        - "5000:5000"
+    volumes:
+        - .:/flask_compose
+    links:
+        - mongo
+        - redis
+mongo:
+    image: mongo:3.0.2
+
+redis:
+    image: redis
